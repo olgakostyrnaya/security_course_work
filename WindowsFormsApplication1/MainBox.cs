@@ -20,6 +20,14 @@ namespace WindowsFormsApplication1
             get { return test1; }
             set { test1 = value; }
         }
+
+        private TestLengthKey test2;
+        public TestLengthKey propTest2
+        {
+            get { return test2; }
+            set { test2 = value; }
+        }
+
         public int myChecker;
         private string stateGraph;
         public string propState
@@ -104,10 +112,13 @@ namespace WindowsFormsApplication1
             myStore = new KeyStore();
             myMaker = new LineMaker(myGraph);
             test1 = new TestAttemptsNumber(pBox2);
-            myChecker = 0;
             test1.ownerTime = new int[200];
             test1.hackerTime = new int[200];
+            test2 = new TestLengthKey(pBox3);
+            test2.ownerTime = new int[200];
+            test2.hackerTime = new int[200];
             stateGraph = "first";
+            myChecker = 0;
         }
 
     }

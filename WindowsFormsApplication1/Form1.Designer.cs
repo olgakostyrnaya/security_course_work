@@ -39,6 +39,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnAttemptsNumber = new System.Windows.Forms.Button();
             this.btnTestLength = new System.Windows.Forms.Button();
+            this.btnClearPBox3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -140,19 +141,30 @@
             // 
             // btnTestLength
             // 
-            this.btnTestLength.Location = new System.Drawing.Point(516, 282);
+            this.btnTestLength.Location = new System.Drawing.Point(467, 282);
             this.btnTestLength.Name = "btnTestLength";
-            this.btnTestLength.Size = new System.Drawing.Size(154, 22);
+            this.btnTestLength.Size = new System.Drawing.Size(123, 22);
             this.btnTestLength.TabIndex = 17;
             this.btnTestLength.Text = "Test \"Key Length\"";
             this.btnTestLength.UseVisualStyleBackColor = true;
             this.btnTestLength.Click += new System.EventHandler(this.btnTestLength_Click);
+            // 
+            // btnClearPBox3
+            // 
+            this.btnClearPBox3.Location = new System.Drawing.Point(596, 281);
+            this.btnClearPBox3.Name = "btnClearPBox3";
+            this.btnClearPBox3.Size = new System.Drawing.Size(116, 23);
+            this.btnClearPBox3.TabIndex = 18;
+            this.btnClearPBox3.Text = "Clear";
+            this.btnClearPBox3.UseVisualStyleBackColor = true;
+            this.btnClearPBox3.Click += new System.EventHandler(this.btnClearPBox3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 400);
+            this.Controls.Add(this.btnClearPBox3);
             this.Controls.Add(this.btnTestLength);
             this.Controls.Add(this.btnAttemptsNumber);
             this.Controls.Add(this.pictureBox3);
@@ -188,6 +200,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnAttemptsNumber;
         private System.Windows.Forms.Button btnTestLength;
+        private System.Windows.Forms.Button btnClearPBox3;
     }
 }
 

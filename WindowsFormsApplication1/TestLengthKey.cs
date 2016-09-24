@@ -10,18 +10,26 @@ namespace WindowsFormsApplication1
     public class TestLengthKey : Test
     {
 
-        private float averageOwner;
-        private float averageHacker;
-        private float[] difArray;
-        private int lenDifArray; 
+        private float averageOwner = 0;
+        private float averageHacker = 0;
+      //  private float[] difArray;
+        private int lenDifArray =0;
+        private float[] columnOwnerArray;
+        private float[] columnHackerArray;
+        private int xForRect = 10;
+
 
         public TestLengthKey(Graphics Gr)
         {
             this.myStatGraph = Gr;
             this.currentHackerTryNumber = 0;
             this.currentOwnerTryNumber = 0;
-            difArray = new float[100];
-            lenDifArray = 0;
+            //difArray = new float[100];
+            this.columnOwnerArray = new float[100];
+            this.columnHackerArray = new float[100];
+            this.lenDifArray = 0;
+            myStatGraph.TranslateTransform(0, 249);
+
         }
 
         public void writeOwnerTime(int currentTime)
@@ -35,7 +43,7 @@ namespace WindowsFormsApplication1
         }
         public void writeHackerTime(int currentTime)
         {
-            hackerTime[this.currentHackerTryNumber] = currentTime;
+            this.hackerTime[this.currentHackerTryNumber] = currentTime;
             this.currentHackerTryNumber = this.currentHackerTryNumber + 1;
         }
 
@@ -43,69 +51,67 @@ namespace WindowsFormsApplication1
         {
             int sumOwner = 0;
             int sumHacker = 0;
-            for (int i = 0; i < currentOwnerTryNumber; i++)
+            for (int i = 0; i < this.currentOwnerTryNumber; i++)
             {
-                sumOwner = sumOwner + ownerTime[i];
+                sumOwner = sumOwner + this.ownerTime[i];
             }
-            for (int j = 0; j < currentOwnerTryNumber; j++)
+            for (int j = 0; j < this.currentOwnerTryNumber; j++)
             {
-                sumHacker = sumHacker + hackerTime[j];
+                sumHacker = sumHacker + this.hackerTime[j];
             }
-            averageOwner = sumOwner / currentOwnerTryNumber;
-            averageHacker = sumHacker / currentHackerTryNumber;
-            difArray[lenDifArray] = (averageOwner) - (averageHacker);
+            averageOwner = sumOwner / this.currentOwnerTryNumber;
+            averageHacker = sumHacker / this.currentHackerTryNumber;
+            //difArray[lenDifArray] = (averageOwner) - (averageHacker);
+           
+            columnOwnerArray[lenDifArray] = averageOwner;
+            columnHackerArray[lenDifArray] = averageHacker;
+            //lenDifArray = lenDifArray + 1;
             lenDifArray = lenDifArray + 1;
+
         }
 
         public void clearBefore()
         {
-            currentOwnerTryNumber = 0;
-            currentHackerTryNumber = 0;
-            ownerTime = null;
+            
+            this.ownerTime = null;
             hackerTime = null;
+            ownerTime = new int[100];
+            hackerTime = new int[100];
+            this.currentOwnerTryNumber = 0;
+            this.currentHackerTryNumber = 0;
+            this.averageOwner = 0;
+            this.averageHacker = 0;
         }
 
         public void PaintGraph()
         {
-            //GrTest.TranslateTransform(0, 249);
-            //Pen myPen;
-            //Pen myPen2;
-            //myPen = new Pen(Color.Red);
-            //myPen2 = new Pen(Color.Aqua);
-
-            //Point[] apt = new Point[currentOwnerTryNumber];
-
-            //for (int i = 0; i < currentOwnerTryNumber; i++)
-            //{
-            //    apt[i] = new Point(i * 30, -(this.ownerTime[i]) / 5);
-
-            //}
-
-            //GrTest.DrawLines(myPen, apt);
-
-            //Point[] apt1 = new Point[currentHackerTryNumber];
-
-            //for (int j = 0; j < currentHackerTryNumber; j++)
-            //{
-            //    apt1[j] = new Point(j * 30, -(this.hackerTime[j]) / 5);
-            //}
-
-
-            //GrTest.DrawLines(myPen2, apt1);
-
-
-            /////
-
-            myStatGraph.TranslateTransform(0, 249);
-            Pen myPen1 = new Pen(Color.BlueViolet);
-            int width = 50;
-            int xForRect = 10;
-            int margin = 20;
+            myStatGraph.Clear(Color.White);
             
+            Pen myPen1 = new Pen(Color.Green);
+            Pen myPen2 = new Pen(Color.Red);
+            int width = 20;
+            xForRect = 10;
+            int margin = 20;
+            //myStatGraph.Clear(Color.White);
             for (int i = 0; i < lenDifArray; i++)
             {
-                myStatGraph.DrawRectangle(myPen1, xForRect, -(difArray[i]), width, (difArray[i]));
-                xForRect = xForRect + width + margin;
+
+                  myStatGraph.DrawRectangle(myPen1, (xForRect), -((columnOwnerArray[i])/2), (width / 2), ((columnOwnerArray[i])/2));
+                  myStatGraph.DrawRectangle(myPen2, (xForRect+(width/2)), -((columnHackerArray[i])/2), (width / 2), ((columnHackerArray[i])/2));
+                //myStatGraph.DrawRectangle(myPen1, (xForRect), ((columnOwnerArray[i]) / 2), (width / 2), ((columnOwnerArray[i]) / 2));
+               // myStatGraph.DrawRectangle(myPen2, (xForRect+(width/2)), ((columnHackerArray[i])/2), (width / 2), ((columnHackerArray[i])/2));
+                xForRect = xForRect + width+margin;
+                //if (difArray[i] > 0)
+                //{
+                //    myStatGraph.DrawRectangle(myPen1, xForRect, -(Math.Abs(difArray[i])/3), width, (Math.Abs(difArray[i]) / 3));
+                //    xForRect = xForRect + width + margin;
+                //    //myStatGraph.DrawRectangle(myPen,10,)
+                //}
+                //if (difArray[i] < 0)
+                //{
+                //    myStatGraph.DrawRectangle(myPen2, xForRect, -(Math.Abs(difArray[i]) / 3), width, (Math.Abs(difArray[i]) / 3));
+                //    xForRect = xForRect + width + margin;
+                //}
             }
             
         }

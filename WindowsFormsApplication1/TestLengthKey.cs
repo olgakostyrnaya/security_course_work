@@ -17,7 +17,8 @@ namespace WindowsFormsApplication1
         private float[] columnOwnerArray;
         private float[] columnHackerArray;
         private int xForRect = 10;
-
+        public string sumsum;
+        public string sumsum1;
 
         public TestLengthKey(Graphics Gr)
         {
@@ -34,7 +35,7 @@ namespace WindowsFormsApplication1
 
         public void writeOwnerTime(int currentTime)
         {
-
+           
             ownerTime[this.currentOwnerTryNumber] = currentTime;
             this.currentOwnerTryNumber = this.currentOwnerTryNumber + 1;
 
@@ -43,8 +44,10 @@ namespace WindowsFormsApplication1
         }
         public void writeHackerTime(int currentTime)
         {
+            
             this.hackerTime[this.currentHackerTryNumber] = currentTime;
             this.currentHackerTryNumber = this.currentHackerTryNumber + 1;
+
         }
 
         public void averageTime()
@@ -55,14 +58,25 @@ namespace WindowsFormsApplication1
             {
                 sumOwner = sumOwner + this.ownerTime[i];
             }
-            for (int j = 0; j < this.currentOwnerTryNumber; j++)
+            for (int j = 0; j < this.currentHackerTryNumber; j++)
             {
                 sumHacker = sumHacker + this.hackerTime[j];
             }
-            averageOwner = sumOwner / this.currentOwnerTryNumber;
-            averageHacker = sumHacker / this.currentHackerTryNumber;
+            averageOwner = sumOwner / (this.currentOwnerTryNumber);
+            averageHacker = sumHacker / (this.currentHackerTryNumber);
             //difArray[lenDifArray] = (averageOwner) - (averageHacker);
-           
+            sumsum = " ";
+            sumsum1 = " ";
+            for (int i = 0; i < this.currentOwnerTryNumber; i++)
+            {
+                this.sumsum = this.sumsum + "   "+ this.ownerTime[i].ToString();
+                
+            }
+            for (int i = 0; i < this.currentHackerTryNumber; i++)
+            {
+                this.sumsum1 = this.sumsum1 + "   " + this.hackerTime[i].ToString();
+
+            }
             columnOwnerArray[lenDifArray] = averageOwner;
             columnHackerArray[lenDifArray] = averageHacker;
             //lenDifArray = lenDifArray + 1;
@@ -87,8 +101,8 @@ namespace WindowsFormsApplication1
         {
             myStatGraph.Clear(Color.White);
             
-            Pen myPen1 = new Pen(Color.Green);
-            Pen myPen2 = new Pen(Color.Red);
+            Pen myPen3 = new Pen(Color.Green);
+            Pen myPen4 = new Pen(Color.Red);
             int width = 20;
             xForRect = 10;
             int margin = 20;
@@ -96,8 +110,8 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < lenDifArray; i++)
             {
 
-                  myStatGraph.DrawRectangle(myPen1, (xForRect), -((columnOwnerArray[i])/2), (width / 2), ((columnOwnerArray[i])/2));
-                  myStatGraph.DrawRectangle(myPen2, (xForRect+(width/2)), -((columnHackerArray[i])/2), (width / 2), ((columnHackerArray[i])/2));
+                  myStatGraph.DrawRectangle(myPen3, (xForRect), -((columnOwnerArray[i])/50), (width / 2), ((columnOwnerArray[i])/50));
+                  myStatGraph.DrawRectangle(myPen4, (xForRect+(width/2)), -((columnHackerArray[i])/50), (width / 2), ((columnHackerArray[i])/50));
                 //myStatGraph.DrawRectangle(myPen1, (xForRect), ((columnOwnerArray[i]) / 2), (width / 2), ((columnOwnerArray[i]) / 2));
                // myStatGraph.DrawRectangle(myPen2, (xForRect+(width/2)), ((columnHackerArray[i])/2), (width / 2), ((columnHackerArray[i])/2));
                 xForRect = xForRect + width+margin;

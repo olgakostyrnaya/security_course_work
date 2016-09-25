@@ -85,7 +85,7 @@ namespace WindowsFormsApplication1
                     if (MyBox.propStore.exitSignal == true)
                     {
                         MyBox.propTime.Stop();
-                        label1.Text = MyBox.propTime.Elapsed.Seconds.ToString();
+                       // label1.Text = MyBox.propTime.Elapsed.Seconds.ToString();
                         return;
                     }
 
@@ -105,7 +105,7 @@ namespace WindowsFormsApplication1
                         {
 
                             MyBox.propStore.addNode(MyBox.propNode[numberOfNode]);
-                            label1.Text = numberOfNode.ToString();
+                          //  label1.Text = numberOfNode.ToString();
                             break;
 
                         }
@@ -129,7 +129,11 @@ namespace WindowsFormsApplication1
                     {
                         MessageBox.Show("Test done!", "Number Attempts Test");
                         MyBox.propTest1.PaintGraph();
+                        MyBox.propTest1.clearBefore();
+                        MyBox.myChecker = 0;
                         MyBox.propState = "neutral";
+                        pictureBox2.Update();
+
                         return;
                     };
 
@@ -137,12 +141,14 @@ namespace WindowsFormsApplication1
                     {
 
                         MyBox.propTime.Stop();
+                        
                         MyBox.repaintScreen();
-                        label1.Text = MyBox.propTime.Elapsed.Milliseconds.ToString();
-                        int ququ = MyBox.propTime.Elapsed.Milliseconds;
+                        label1.Text = MyBox.propTime.ElapsedMilliseconds.ToString();
+                        int ququ = Convert.ToInt32((MyBox.propTime.ElapsedMilliseconds));
+                      //  label1.Text = ququ.ToString();
                         MyBox.propTime.Reset();
 
-                        if (MyBox.myChecker < 7-1)
+                        if (MyBox.myChecker < 7)
 
                         {
                             MyBox.propTest1.writeOwnerTime(ququ);
@@ -150,7 +156,7 @@ namespace WindowsFormsApplication1
                         }
                         else
                         {
-                            if (MyBox.myChecker == 7-1) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
+                            if (MyBox.myChecker == 7) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
                             MyBox.propTest1.writeHackerTime(ququ);
                             // MyBox.propTest1.currentHackerTryNumber = MyBox.propTest1.currentHackerTryNumber + 1; 
                         }
@@ -164,17 +170,17 @@ namespace WindowsFormsApplication1
                     float x1 = e.X;
                     float y1 = e.Y;
 
-                    int numberOfNode1;
+                    int numberOfNode1 = 20;
                     
                     for (int i = 0; i <= 8; i++)
                     {
 
                         numberOfNode1 = (MyBox.propNode[i].CheckPoint(x1, y1));
-                        if ((numberOfNode1 < 404) || (numberOfNode1 == MyBox.propStore.firstNode.propId))
+                        if ((numberOfNode1 < 404)) //|| (numberOfNode1 == MyBox.propStore.firstNode.propId))
                         {
 
                             MyBox.propStore.addNode(MyBox.propNode[numberOfNode1]);
-                            label1.Text = numberOfNode1.ToString();
+                        //    label1.Text = numberOfNode1.ToString();
                             break;
 
                         }
@@ -200,7 +206,7 @@ namespace WindowsFormsApplication1
                     //   {
                     //if (MyBox.myChecker < 18)
                    // {
-                        if ((MyBox.myChecker == numCheck) || (MyBox.myChecker > numCheck))
+                        if ((MyBox.myChecker == numCheck)) //|| (MyBox.myChecker > numCheck+1))
                         {
                             MessageBox.Show("Test done!", "Length Key Test");
                             MyBox.propTest2.averageTime();
@@ -209,19 +215,27 @@ namespace WindowsFormsApplication1
                             MyBox.myChecker = 0;
                             MyBox.propState = "neutral";
                             pictureBox3.Update();
-                  
-                            return;
+                        label1.Text = MyBox.propTest2.sumsum;
+                        label2.Text = MyBox.propTest2.sumsum1;
+                        return;
                         };
 
-                        if (MyBox.propStore.exitSignal == true) 
-                        {
+                    if (MyBox.propStore.exitSignal == true)
+                    {
 
-                            MyBox.propTime.Stop();
-                            MyBox.repaintScreen();
-                            //   label1.Text = MyBox.propTime.Elapsed.Milliseconds.ToString();
-                            int timerToTest = MyBox.propTime.Elapsed.Milliseconds;
-                            MyBox.propTime.Reset();
+                        MyBox.propTime.Stop(); //ТУУУУТ!
+                        MyBox.repaintScreen();
 
+
+
+
+
+                        int timerToTest = Convert.ToInt32(MyBox.propTime.ElapsedMilliseconds);
+                        MyBox.propTime.Reset();
+                        label1.Text = timerToTest.ToString();
+
+                    
+                   
                             if (MyBox.myChecker < (numCheck / 2)-1)
 
                             {
@@ -230,9 +244,9 @@ namespace WindowsFormsApplication1
                             }
                             else
                             {
-                                if (MyBox.myChecker == (numCheck / 2) - 1) { MessageBox.Show("Start hacker attempts", "Length Key Test"); }
+                                if (MyBox.myChecker == (numCheck / 2)-1) { MessageBox.Show("Start hacker attempts", "Length Key Test"); }
                                 MyBox.propTest2.writeHackerTime(timerToTest);
-                                // MyBox.propTest1.currentHackerTryNumber = MyBox.propTest1.currentHackerTryNumber + 1; 
+                               
                             }
 
                             MyBox.myChecker = MyBox.myChecker + 1;
@@ -250,11 +264,11 @@ namespace WindowsFormsApplication1
                         {
 
                             numberOfNode2 = (MyBox.propNode[j1].CheckPoint(x2, y2));
-                            if ((numberOfNode2 < 404)) //|| (MyBox.propStore.propLen <= (numCheck/2))) //|| (numberOfNode2 == MyBox.propStore.firstNode.propId))
+                            if ((numberOfNode2 < 404))// || (MyBox.propStore.propLen <= (numCheck/2))) //|| (numberOfNode2 == MyBox.propStore.firstNode.propId))
                             {
 
                                 MyBox.propStore.addNode(MyBox.propNode[numberOfNode2]);
-                                label1.Text = numberOfNode2.ToString();
+                                //label1.Text = numberOfNode2.ToString();
                                 break;
 
                             }
@@ -268,18 +282,7 @@ namespace WindowsFormsApplication1
 
                         }
 
-                        //label2.Text = MyBox.propStore.propKeyText.ToString();
-
-
-                    //}
-                    //else {
-
-                    //    MyBox.propState = "neutral";
-                    //    return;
-                   
-                    //}
-                    ////numCheck = numCheck + 4;
-                    //  return;
+                    
                     break;
 
                 case "neutral":
@@ -294,14 +297,7 @@ namespace WindowsFormsApplication1
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
-            //// код
-            //string a = "54";
-            //string b = "2";
-            //int c = 0;
-            //c = Convert.ToInt32(a.Substring(1,1)); //+ Convert.ToInt32(b);
-            //label2.Text = c.ToString();
-            ////--------------------------------
-            
+          
 
 
         }
@@ -321,9 +317,13 @@ namespace WindowsFormsApplication1
         {
             MyBox.propState = "test1";
             MyBox.repaintScreen();
-            MyBox.propTest1.realKey = MyBox.propStore.propKeyText;
+        //    MyBox.propTest1.realKey = MyBox.propStore.propKeyText;
             MyBox.propStore.exitSignal = false;
+            MyBox.propTest1.clearBefore();
             MyBox.propStore.clearArr();
+            MyBox.myChecker = 0;
+            pictureBox2.Refresh();
+
             MessageBox.Show("Start owner attempts","Number Attempts Test");
 
         }
@@ -333,27 +333,13 @@ namespace WindowsFormsApplication1
 
             MyBox.propState = "test2";
             MyBox.repaintScreen();
-           // MyBox.propTest2.realKey = MyBox.propStore.propKeyText;--
+          
             MyBox.propStore.exitSignal = false;
-           // MyBox.propStore.clearArr();
+           
             MyBox.propTest2.clearBefore();
-           // MyBox.myChecker = 0;--
+            MyBox.propStore.clearArr();
             MessageBox.Show("Start owner attempts", "Length Key Test");
-            //Graphics g1 = pictureBox3.CreateGraphics();
-            //g1.TranslateTransform(0, 249);
-            //Pen myPen1 = new Pen(Color.BlueViolet);
-            //int width = 50;
-            //int xForRect = 10;
-            //int margin = 20;
-            //float[] difArray = new float[4];
-            //difArray[0] = 100;
-            //difArray[1] = 80;
-            //difArray[2] = 30;
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    g1.DrawRectangle(myPen1, xForRect, -(difArray[i]), width, (difArray[i]));
-            //    xForRect = xForRect + width + margin;
-            //}
+            
 
 
         }
@@ -370,5 +356,7 @@ namespace WindowsFormsApplication1
             MyBox.myChecker = 0;
 
         }
+
+       
     }
 }

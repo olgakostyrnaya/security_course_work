@@ -79,7 +79,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 286);
+            this.label1.Location = new System.Drawing.Point(515, 325);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 7;
@@ -88,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(114, 303);
+            this.label2.Location = new System.Drawing.Point(515, 348);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 10;
@@ -131,9 +131,9 @@
             // 
             // btnAttemptsNumber
             // 
-            this.btnAttemptsNumber.Location = new System.Drawing.Point(261, 281);
+            this.btnAttemptsNumber.Location = new System.Drawing.Point(211, 281);
             this.btnAttemptsNumber.Name = "btnAttemptsNumber";
-            this.btnAttemptsNumber.Size = new System.Drawing.Size(154, 23);
+            this.btnAttemptsNumber.Size = new System.Drawing.Size(144, 23);
             this.btnAttemptsNumber.TabIndex = 16;
             this.btnAttemptsNumber.Text = "Test \"Number of attempts\"";
             this.btnAttemptsNumber.UseVisualStyleBackColor = true;

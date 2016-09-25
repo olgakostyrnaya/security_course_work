@@ -37,31 +37,40 @@ namespace WindowsFormsApplication1
         public void PaintGraph()
         {
             myStatGraph.TranslateTransform(0, 249);
-            Pen myPen;
+            Pen myPen1;
             Pen myPen2;
-            myPen = new Pen(Color.Red);
-            myPen2 = new Pen(Color.Aqua);
+            myPen1 = new Pen(Color.Green);
+            myPen2 = new Pen(Color.Red);
          
             Point[] apt = new Point[currentOwnerTryNumber];
          
             for (int i = 0; i < currentOwnerTryNumber;i++)
             {
-                apt[i] = new Point(i*30,-(this.ownerTime[i])/5);
+                apt[i] = new Point(i*30,-(this.ownerTime[i])/25);
                
             }
 
-            myStatGraph.DrawLines(myPen, apt);
+            myStatGraph.DrawLines(myPen1, apt);
 
             Point[] apt1 = new Point[currentHackerTryNumber];
           
             for (int j = 0; j < currentHackerTryNumber; j++)
             {
-                apt1[j] = new Point(j*30, -(this.hackerTime[j])/5);
+                apt1[j] = new Point(j*30, -(this.hackerTime[j])/25);
             }
 
 
             myStatGraph.DrawLines(myPen2, apt1);
          
+        }
+        public void clearBefore()
+        {
+            this.ownerTime = null;
+            hackerTime = null;
+            ownerTime = new int[100];
+            hackerTime = new int[100];
+            this.currentHackerTryNumber = 0;
+            this.currentOwnerTryNumber = 0;
         }
     }
 }

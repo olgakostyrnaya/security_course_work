@@ -40,6 +40,7 @@
             this.btnAttemptsNumber = new System.Windows.Forms.Button();
             this.btnTestLength = new System.Windows.Forms.Button();
             this.btnClearPBox3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -159,11 +160,21 @@
             this.btnClearPBox3.UseVisualStyleBackColor = true;
             this.btnClearPBox3.Click += new System.EventHandler(this.btnClearPBox3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(492, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 400);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClearPBox3);
             this.Controls.Add(this.btnTestLength);
             this.Controls.Add(this.btnAttemptsNumber);
@@ -201,6 +212,7 @@
         private System.Windows.Forms.Button btnAttemptsNumber;
         private System.Windows.Forms.Button btnTestLength;
         private System.Windows.Forms.Button btnClearPBox3;
+        private System.Windows.Forms.Label label3;
     }
 }
 

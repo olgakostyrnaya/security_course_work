@@ -125,7 +125,7 @@ namespace WindowsFormsApplication1
                     break;
                 case "test1":
 
-                    if ((MyBox.myChecker == 14) || (MyBox.myChecker > 14))
+                    if (MyBox.myChecker == 15) //|| (MyBox.myChecker > 14))
                     {
                         MessageBox.Show("Test done!", "Number Attempts Test");
                         MyBox.propTest1.PaintGraph();
@@ -133,7 +133,7 @@ namespace WindowsFormsApplication1
                         MyBox.myChecker = 0;
                         MyBox.propState = "neutral";
                         pictureBox2.Update();
-
+                        label3.Text = MyBox.propTest1.sumO + " и " + MyBox.propTest1.sumH;
                         return;
                     };
 
@@ -148,15 +148,15 @@ namespace WindowsFormsApplication1
                       //  label1.Text = ququ.ToString();
                         MyBox.propTime.Reset();
 
-                        if (MyBox.myChecker < 7)
+                        if (MyBox.myChecker <= 7)
 
                         {
                             MyBox.propTest1.writeOwnerTime(ququ);
-
+                            if (MyBox.myChecker == 7) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
                         }
                         else
                         {
-                            if (MyBox.myChecker == 7) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
+                           
                             MyBox.propTest1.writeHackerTime(ququ);
                             // MyBox.propTest1.currentHackerTryNumber = MyBox.propTest1.currentHackerTryNumber + 1; 
                         }
@@ -206,17 +206,20 @@ namespace WindowsFormsApplication1
                     //   {
                     //if (MyBox.myChecker < 18)
                    // {
-                        if ((MyBox.myChecker == numCheck)) //|| (MyBox.myChecker > numCheck+1))
+                        if ((MyBox.myChecker == numCheck+1) || (MyBox.myChecker > numCheck))
                         {
                             MessageBox.Show("Test done!", "Length Key Test");
+                        
+                        
                             MyBox.propTest2.averageTime();
                             MyBox.propTest2.PaintGraph();
                             MyBox.propTest2.clearBefore();
                             MyBox.myChecker = 0;
                             MyBox.propState = "neutral";
                             pictureBox3.Update();
-                        label1.Text = MyBox.propTest2.sumsum;
-                        label2.Text = MyBox.propTest2.sumsum1;
+                           label1.Text = MyBox.propTest2.sumsum;
+                           label2.Text = MyBox.propTest2.sumsum1;
+                        
                         return;
                         };
 
@@ -236,15 +239,16 @@ namespace WindowsFormsApplication1
 
                     
                    
-                            if (MyBox.myChecker < (numCheck / 2)-1)
+                            if (MyBox.myChecker <= (numCheck / 2)) // here
 
                             {
                                 MyBox.propTest2.writeOwnerTime(timerToTest);
+                                if (MyBox.myChecker == (numCheck / 2)) { MessageBox.Show("Start hacker attempts", "Length Key Test"); }
 
-                            }
+                        }
                             else
-                            {
-                                if (MyBox.myChecker == (numCheck / 2)-1) { MessageBox.Show("Start hacker attempts", "Length Key Test"); }
+                            { // here
+                                
                                 MyBox.propTest2.writeHackerTime(timerToTest);
                                
                             }
@@ -321,7 +325,7 @@ namespace WindowsFormsApplication1
             MyBox.propStore.exitSignal = false;
             MyBox.propTest1.clearBefore();
             MyBox.propStore.clearArr();
-            MyBox.myChecker = 0;
+            MyBox.myChecker = 1;
             pictureBox2.Refresh();
 
             MessageBox.Show("Start owner attempts","Number Attempts Test");
@@ -330,7 +334,7 @@ namespace WindowsFormsApplication1
 
         private void btnTestLength_Click(object sender, EventArgs e)
         {
-
+            MyBox.myChecker = 1;
             MyBox.propState = "test2";
             MyBox.repaintScreen();
           

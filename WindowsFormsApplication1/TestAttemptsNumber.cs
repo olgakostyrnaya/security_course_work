@@ -9,7 +9,8 @@ namespace WindowsFormsApplication1
 {
     public class TestAttemptsNumber : Test
     {
-
+        public string sumO;
+        public string sumH;      
         public TestAttemptsNumber (Graphics Gr)
         {
             this.myStatGraph = Gr;
@@ -22,7 +23,7 @@ namespace WindowsFormsApplication1
            
                 ownerTime[this.currentOwnerTryNumber] = currentTime;
                this.currentOwnerTryNumber = this.currentOwnerTryNumber + 1;
-     
+            sumO = currentOwnerTryNumber.ToString();
 
 
         }
@@ -30,6 +31,7 @@ namespace WindowsFormsApplication1
         {
             hackerTime[this.currentHackerTryNumber] = currentTime;
             this.currentHackerTryNumber = this.currentHackerTryNumber + 1;
+            sumH = currentHackerTryNumber.ToString();
         }
 
 
@@ -61,7 +63,7 @@ namespace WindowsFormsApplication1
 
 
             myStatGraph.DrawLines(myPen2, apt1);
-         
+            
         }
         public void clearBefore()
         {

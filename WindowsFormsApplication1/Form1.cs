@@ -37,6 +37,14 @@ namespace WindowsFormsApplication1
             label2.Visible = false;
             label3.Visible = false;
 
+            lblTest1.Visible = false;
+            lblTest2.Visible = false;
+            btnTest1PMinus.Visible = false;
+            btnTest1Plus.Visible = false;
+            btnTest2Minus.Visible = false;
+            btnTest2Plus.Visible = false;
+            label6.Visible = false;
+            label4.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -74,6 +82,19 @@ namespace WindowsFormsApplication1
             btnCancel.Visible = true;
             btnGeneralKey.Visible = true;
             btnClearPBox3.Visible = true;
+
+            lblTest1.Visible = true;
+            lblTest2.Visible = true;
+            lblTest1.Text = "5";
+            lblTest2.Text = "3";
+
+            btnTest1PMinus.Visible = true;
+            btnTest1Plus.Visible = true;
+            btnTest2Minus.Visible = true;
+            btnTest2Plus.Visible = true;
+            label6.Visible = true;
+            label4.Visible = true;
+
             Graphics Gr1 = pictureBox1.CreateGraphics();
             Graphics Gr2 = pictureBox2.CreateGraphics();
             Graphics Gr3 = pictureBox3.CreateGraphics();
@@ -135,8 +156,9 @@ namespace WindowsFormsApplication1
 
                     break;
                 case "test1":
-
-                    if (MyBox.myChecker == 15) //|| (MyBox.myChecker > 14))
+                    int numAtt;
+                    numAtt = (Convert.ToInt32(lblTest1.Text)) * 2;
+                    if (MyBox.myChecker == numAtt+1) //|| (MyBox.myChecker > 14))
                     {
                         MessageBox.Show("Test done!", "Number Attempts Test");
                         MyBox.propTest1.PaintGraph();
@@ -159,11 +181,11 @@ namespace WindowsFormsApplication1
                       //  label1.Text = ququ.ToString();
                         MyBox.propTime.Reset();
 
-                        if (MyBox.myChecker <= 7)
+                        if (MyBox.myChecker <= (numAtt/2))
 
                         {
                             MyBox.propTest1.writeOwnerTime(ququ);
-                            if (MyBox.myChecker == 7) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
+                            if (MyBox.myChecker == (numAtt/2)) { MessageBox.Show("Start hacker attempts", "Number Attempts Test"); }
                         }
                         else
                         {
@@ -211,8 +233,8 @@ namespace WindowsFormsApplication1
 
                    break;
                 case "test2":
-                int numCheck = 6; // 6 10 14 18
-
+                int numCheck; // 6 10 14 18
+                    numCheck = (Convert.ToInt32(lblTest2.Text))*2;
                     //     while (MyBox.myChecker < 18)
                     //   {
                     //if (MyBox.myChecker < 18)
@@ -371,6 +393,49 @@ namespace WindowsFormsApplication1
         private void btnGeneralKey_Click(object sender, EventArgs e)
         {
             MyBox.propState = "first";
+        }
+
+        private void btnTest1PMinus_Click(object sender, EventArgs e)
+        {
+            int serviceNum = 0;
+            serviceNum = Convert.ToInt32(lblTest1.Text);
+            if (serviceNum <= 1)
+            { return; }
+            else
+            {
+                serviceNum = serviceNum - 1;
+                lblTest1.Text = serviceNum.ToString();
+            }
+        }
+
+        private void btnTest2Minus_Click(object sender, EventArgs e)
+        {
+            int serviceNum = 0;
+            serviceNum = Convert.ToInt32(lblTest2.Text);
+            if (serviceNum <= 1)
+            { return; }
+            else
+            {
+                serviceNum = serviceNum - 1;
+                lblTest2.Text = serviceNum.ToString();
+            }
+        }
+
+        private void btnTest1Plus_Click(object sender, EventArgs e)
+        {
+            int serviceNum = 0;
+            serviceNum = Convert.ToInt32(lblTest1.Text);
+            serviceNum = serviceNum + 1;
+            lblTest1.Text = serviceNum.ToString();
+           
+        }
+
+        private void btnTest2Plus_Click(object sender, EventArgs e)
+        {
+            int serviceNum = 0;
+            serviceNum = Convert.ToInt32(lblTest2.Text);
+            serviceNum = serviceNum + 1;
+            lblTest2.Text = serviceNum.ToString();
         }
     }
 }

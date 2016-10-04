@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
             this.myStatGraph = Gr;
             this.currentHackerTryNumber = 0;
             this.currentOwnerTryNumber = 0;
-
+            myStatGraph.TranslateTransform(0, 249);
         }
         public void writeOwnerTime(int currentTime)
         {
@@ -38,7 +38,8 @@ namespace WindowsFormsApplication1
 
         public void PaintGraph()
         {
-            myStatGraph.TranslateTransform(0, 249);
+            myStatGraph.Clear(Color.White);
+          
             Pen myPen1;
             Pen myPen2;
             myPen1 = new Pen(Color.Green);

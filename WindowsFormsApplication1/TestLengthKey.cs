@@ -88,7 +88,7 @@ namespace WindowsFormsApplication1
         {
             
             this.ownerTime = null;
-            hackerTime = null;
+            this.hackerTime = null;
             ownerTime = new int[100];
             hackerTime = new int[100];
             this.currentOwnerTryNumber = 0;
@@ -112,22 +112,26 @@ namespace WindowsFormsApplication1
 
                   myStatGraph.DrawRectangle(myPen3, (xForRect), -((columnOwnerArray[i])/50), (width / 2), ((columnOwnerArray[i])/50));
                   myStatGraph.DrawRectangle(myPen4, (xForRect+(width/2)), -((columnHackerArray[i])/50), (width / 2), ((columnHackerArray[i])/50));
-                //myStatGraph.DrawRectangle(myPen1, (xForRect), ((columnOwnerArray[i]) / 2), (width / 2), ((columnOwnerArray[i]) / 2));
-               // myStatGraph.DrawRectangle(myPen2, (xForRect+(width/2)), ((columnHackerArray[i])/2), (width / 2), ((columnHackerArray[i])/2));
-                xForRect = xForRect + width+margin;
-                //if (difArray[i] > 0)
-                //{
-                //    myStatGraph.DrawRectangle(myPen1, xForRect, -(Math.Abs(difArray[i])/3), width, (Math.Abs(difArray[i]) / 3));
-                //    xForRect = xForRect + width + margin;
-                //    //myStatGraph.DrawRectangle(myPen,10,)
-                //}
-                //if (difArray[i] < 0)
-                //{
-                //    myStatGraph.DrawRectangle(myPen2, xForRect, -(Math.Abs(difArray[i]) / 3), width, (Math.Abs(difArray[i]) / 3));
-                //    xForRect = xForRect + width + margin;
-                //}
+                  xForRect = xForRect + width+margin;
+                
             }
             
+        }
+        public void totallyClear()
+        {
+            this.ownerTime = null;
+            this.hackerTime = null;
+            ownerTime = new int[100];
+            hackerTime = new int[100];
+            this.currentOwnerTryNumber = 0;
+            this.currentHackerTryNumber = 0;
+            this.averageOwner = 0;
+            this.averageHacker = 0;
+            this.columnOwnerArray = null;
+            this.columnHackerArray = null;
+            columnOwnerArray = new float[100];
+            columnHackerArray = new float[100];
+            lenDifArray = 0;
         }
     }
 }

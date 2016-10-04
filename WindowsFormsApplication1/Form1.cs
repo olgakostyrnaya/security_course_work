@@ -26,10 +26,16 @@ namespace WindowsFormsApplication1
             pictureBox1.Enabled = false;
             btnOK.Visible = false;
             btnCancel.Visible = false;
-            checkBox1.Visible = false;
+
             btnAttemptsNumber.Visible = false;
             btnTestLength.Visible = false;
-            
+            btnGeneralKey.Visible = false;
+            btnClearPBox3.Visible = false;
+            this.Width = 220;
+            this.Height = 240;
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
 
         }
 
@@ -49,6 +55,10 @@ namespace WindowsFormsApplication1
         
         private void btnStart_Click_1(object sender, EventArgs e)
         {
+            this.Width = 740;
+            this.Height = 438;
+            
+
             pictureBox1.BackColor = Color.White;
             pictureBox2.BackColor = Color.White;
             pictureBox3.BackColor = Color.White;
@@ -62,12 +72,13 @@ namespace WindowsFormsApplication1
             pictureBox1.Enabled = true;
             btnOK.Visible = true;
             btnCancel.Visible = true;
-            checkBox1.Visible = true;
+            btnGeneralKey.Visible = true;
+            btnClearPBox3.Visible = true;
             Graphics Gr1 = pictureBox1.CreateGraphics();
             Graphics Gr2 = pictureBox2.CreateGraphics();
             Graphics Gr3 = pictureBox3.CreateGraphics();
             MyBox = new MainBox(Gr1,Gr2,Gr3);
-
+            MyBox.propState = "neutral";
            
 
 
@@ -319,14 +330,16 @@ namespace WindowsFormsApplication1
 
         private void btnAttemptsNumber_Click(object sender, EventArgs e)
         {
+            MyBox.myChecker = 1;
             MyBox.propState = "test1";
             MyBox.repaintScreen();
+            MyBox.propTest1.myStatGraph.Clear(Color.White);
         //    MyBox.propTest1.realKey = MyBox.propStore.propKeyText;
             MyBox.propStore.exitSignal = false;
             MyBox.propTest1.clearBefore();
             MyBox.propStore.clearArr();
-            MyBox.myChecker = 1;
-            pictureBox2.Refresh();
+           
+            //pictureBox2.Refresh();
 
             MessageBox.Show("Start owner attempts","Number Attempts Test");
 
@@ -337,30 +350,27 @@ namespace WindowsFormsApplication1
             MyBox.myChecker = 1;
             MyBox.propState = "test2";
             MyBox.repaintScreen();
-          
             MyBox.propStore.exitSignal = false;
-           
             MyBox.propTest2.clearBefore();
             MyBox.propStore.clearArr();
             MessageBox.Show("Start owner attempts", "Length Key Test");
-            
-
-
         }
 
         private void btnClearPBox3_Click(object sender, EventArgs e)
         {
-            // MyBox.propState = "test2";
-            //MyBox.repaintScreen();
 
-            //  MyBox.propTest2.realKey = MyBox.propStore.propKeyText;
-            //  MyBox.propStore.exitSignal = false;
-            // MyBox.propStore.clearArr();
             pictureBox3.Refresh();
-            MyBox.myChecker = 0;
+            MyBox.myChecker = 1;
+            MyBox.propTest2.clearBefore();
+            // MyBox.propStore.clearArr();
+            MyBox.propTest2.totallyClear();
+
 
         }
 
-       
+        private void btnGeneralKey_Click(object sender, EventArgs e)
+        {
+            MyBox.propState = "first";
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -41,6 +40,7 @@
             this.btnTestLength = new System.Windows.Forms.Button();
             this.btnClearPBox3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnGeneralKey = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -65,17 +65,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(22, 303);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Hide the key";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label1
             // 
@@ -106,9 +95,9 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(203, 325);
+            this.btnStart.Location = new System.Drawing.Point(22, 39);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(294, 36);
+            this.btnStart.Size = new System.Drawing.Size(157, 125);
             this.btnStart.TabIndex = 13;
             this.btnStart.Text = "START";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -132,7 +121,7 @@
             // 
             // btnAttemptsNumber
             // 
-            this.btnAttemptsNumber.Location = new System.Drawing.Point(211, 281);
+            this.btnAttemptsNumber.Location = new System.Drawing.Point(317, 279);
             this.btnAttemptsNumber.Name = "btnAttemptsNumber";
             this.btnAttemptsNumber.Size = new System.Drawing.Size(144, 23);
             this.btnAttemptsNumber.TabIndex = 16;
@@ -169,11 +158,22 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "label3";
             // 
+            // btnGeneralKey
+            // 
+            this.btnGeneralKey.Location = new System.Drawing.Point(111, 290);
+            this.btnGeneralKey.Name = "btnGeneralKey";
+            this.btnGeneralKey.Size = new System.Drawing.Size(75, 23);
+            this.btnGeneralKey.TabIndex = 20;
+            this.btnGeneralKey.Text = "Create key";
+            this.btnGeneralKey.UseVisualStyleBackColor = true;
+            this.btnGeneralKey.Click += new System.EventHandler(this.btnGeneralKey_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(724, 400);
+            this.ClientSize = new System.Drawing.Size(204, 202);
+            this.Controls.Add(this.btnGeneralKey);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClearPBox3);
             this.Controls.Add(this.btnTestLength);
@@ -184,7 +184,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Name = "Form1";
@@ -202,7 +201,6 @@
         #endregion
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -213,6 +211,7 @@
         private System.Windows.Forms.Button btnTestLength;
         private System.Windows.Forms.Button btnClearPBox3;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnGeneralKey;
     }
 }
 

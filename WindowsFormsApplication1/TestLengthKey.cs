@@ -100,9 +100,12 @@ namespace WindowsFormsApplication1
         public void PaintGraph()
         {
             myStatGraph.Clear(Color.White);
-            
-            Pen myPen3 = new Pen(Color.Green);
-            Pen myPen4 = new Pen(Color.Red);
+            paintAxis();
+
+            //Pen myPen3 = new Pen(Color.Green);
+            //Pen myPen4 = new Pen(Color.Red);
+            Brush myBrush3 = new SolidBrush(Color.Green);
+            Brush myBrush4 = new SolidBrush(Color.Red);
             int width = 20;
             xForRect = 10;
             int margin = 20;
@@ -110,12 +113,65 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < lenDifArray; i++)
             {
 
-                  myStatGraph.DrawRectangle(myPen3, (xForRect), -((columnOwnerArray[i])/50), (width / 2), ((columnOwnerArray[i])/50));
-                  myStatGraph.DrawRectangle(myPen4, (xForRect+(width/2)), -((columnHackerArray[i])/50), (width / 2), ((columnHackerArray[i])/50));
-                  xForRect = xForRect + width+margin;
+                 // myStatGraph.DrawRectangle(myPen3, (xForRect), -((columnOwnerArray[i])/50), (width / 2), ((columnOwnerArray[i])/50));
+                 // myStatGraph.DrawRectangle(myPen4, (xForRect+(width/2)), -((columnHackerArray[i])/50), (width / 2), ((columnHackerArray[i])/50));
+                // here we are
+                myStatGraph.FillRectangle(myBrush3, (xForRect), -((columnOwnerArray[i]) / 50), (width / 2), ((columnOwnerArray[i]) / 50));
+                myStatGraph.FillRectangle(myBrush4, (xForRect + (width / 2)), -((columnHackerArray[i]) / 50), (width / 2), ((columnHackerArray[i]) / 50));
+
+                xForRect = xForRect + width+margin;
                 
             }
+            paintLegend();
             
+        }
+        protected override void paintLegend()
+        {
+            Brush brushText = new SolidBrush(Color.Black);
+            Brush myBrush = new SolidBrush(Color.White);
+            Brush brushOwner = new SolidBrush(Color.Green);
+            Brush brushHacker = new SolidBrush(Color.Red);
+            Pen myPenForLegendRect = new Pen(Color.Black);
+            myPenForLegendRect.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            myPenForLegendRect.Width = 2;
+            Rectangle myRect = new Rectangle(135, -240, 90, 30);
+            myStatGraph.DrawRectangle(myPenForLegendRect, myRect);
+            myStatGraph.FillRectangle(myBrush, myRect);
+            Pen myPenForOwner = new Pen(Color.Green);
+            Pen myPenForHacker = new Pen(Color.Red);
+            Rectangle rectOwner = new Rectangle(153, -232, 10, 5);
+            myStatGraph.DrawRectangle(myPenForOwner, rectOwner);
+            myStatGraph.FillRectangle(brushOwner, rectOwner);
+            Rectangle rectHacker = new Rectangle(153, -222, 10, 5);
+            myStatGraph.DrawRectangle(myPenForHacker, rectHacker);
+            myStatGraph.FillRectangle(brushHacker, rectHacker);
+            myStatGraph.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            Font font = new System.Drawing.Font("Arial", 7, FontStyle.Italic);
+            myStatGraph.DrawString("owner", font, brushText, 175, -235);
+            myStatGraph.DrawString("hacker", font, brushText, 175, -225);
+
+        }
+        protected override void paintAxis()//(string nameAxisX, string nameAxisY)
+        {
+            Color myColor;
+            Color black = Color.FromArgb(50, 0, 0);
+            myColor = Color.FromArgb(50, black);
+            Pen myPen = new Pen(myColor);
+
+            int y;
+            int x;
+            y = -10;
+            x = 10;
+            while (y > -250)
+            {
+                myStatGraph.DrawLine(myPen, 0, y, 249, y);
+                y = y - 10;
+            }
+            while (x < 250)
+            {
+                myStatGraph.DrawLine(myPen, x, 0, x, -249);
+                x = x + 10;
+            }
         }
         public void totallyClear()
         {

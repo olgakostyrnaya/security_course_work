@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+
 namespace WindowsFormsApplication1
 {
     public class TestAttemptsNumber : Test
@@ -38,13 +39,15 @@ namespace WindowsFormsApplication1
 
         public void PaintGraph()
         {
+            
             myStatGraph.Clear(Color.White);
-          
+            paintAxis();
+
             Pen myPen1;
             Pen myPen2;
             myPen1 = new Pen(Color.Green);
             myPen2 = new Pen(Color.Red);
-         
+            
             Point[] apt = new Point[currentOwnerTryNumber];
          
             for (int i = 0; i < currentOwnerTryNumber;i++)
@@ -65,6 +68,51 @@ namespace WindowsFormsApplication1
 
             myStatGraph.DrawLines(myPen2, apt1);
             
+        }
+
+        protected override void paintAxis()//(string nameAxisX, string nameAxisY)
+        {
+            Color myColor;
+            Color black = Color.FromArgb(50, 0, 0);
+            myColor = Color.FromArgb(50, black);
+            Pen myPen = new Pen(myColor);
+
+            int y;
+            int x;
+            y = -10;
+            x = 30;
+            while (y > -250)
+            {
+                myStatGraph.DrawLine(myPen, 0, y, 249, y);
+                y = y - 10;
+            }
+            while (x < 250)
+            {
+                myStatGraph.DrawLine(myPen, x, 0, x, -249);
+                x = x + 30;
+            }
+
+            paintLegend();
+        }
+
+        protected override void paintLegend()
+        {
+            Brush brushText = new SolidBrush(Color.Black);
+            Brush myBrush = new SolidBrush(Color.White);
+            Pen myPenForLegendRect = new Pen(Color.Black);
+            myPenForLegendRect.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            myPenForLegendRect.Width = 2;
+            Rectangle myRect = new Rectangle(135, -240, 90, 30);
+            myStatGraph.DrawRectangle(myPenForLegendRect, myRect);
+            myStatGraph.FillRectangle(myBrush, myRect);
+            Pen myPenForOwner = new Pen(Color.Green);
+            Pen myPenForHacker = new Pen(Color.Red);
+            myStatGraph.DrawLine(myPenForOwner, 148, -230, 178, -230);
+            myStatGraph.DrawLine(myPenForHacker, 148, -220, 178, -220);
+            myStatGraph.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            Font font = new System.Drawing.Font("Arial", 7, FontStyle.Italic);
+            myStatGraph.DrawString("owner", font , brushText, 180, -235);
+            myStatGraph.DrawString("hacker", font, brushText, 180, -225);
         }
         public void clearBefore()
         {

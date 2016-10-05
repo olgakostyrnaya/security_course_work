@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace WindowsFormsApplication1
 {
-    public class Test
+    public abstract class Test
     {
         public Graphics myStatGraph;
         public string realKey; 
@@ -16,9 +16,8 @@ namespace WindowsFormsApplication1
         public int wrongTry;
         public int currentHackerTryNumber = 0;
         public int currentOwnerTryNumber = 0;
-        public void paintAxis(string nameAxisX,string nameAxisY)
-        {
-        }
+        protected abstract void paintAxis();//(string nameAxisX, string nameAxisY);
+        protected abstract void paintLegend();
        
         public void anotherHackerTry(int timeTry)
         {

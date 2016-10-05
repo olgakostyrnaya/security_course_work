@@ -115,15 +115,16 @@
             // 
             this.pictureBox2.Location = new System.Drawing.Point(211, 24);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 249);
+            this.pictureBox2.Size = new System.Drawing.Size(242, 249);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(467, 24);
+            this.pictureBox3.Location = new System.Drawing.Point(470, 24);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(245, 249);
+            this.pictureBox3.Size = new System.Drawing.Size(242, 249);
             this.pictureBox3.TabIndex = 15;
             this.pictureBox3.TabStop = false;
             // 
@@ -131,7 +132,7 @@
             // 
             this.btnAttemptsNumber.Location = new System.Drawing.Point(211, 310);
             this.btnAttemptsNumber.Name = "btnAttemptsNumber";
-            this.btnAttemptsNumber.Size = new System.Drawing.Size(250, 23);
+            this.btnAttemptsNumber.Size = new System.Drawing.Size(245, 23);
             this.btnAttemptsNumber.TabIndex = 16;
             this.btnAttemptsNumber.Text = "Test \"Number of attempts\"";
             this.btnAttemptsNumber.UseVisualStyleBackColor = true;
@@ -149,7 +150,7 @@
             // 
             // btnClearPBox3
             // 
-            this.btnClearPBox3.Location = new System.Drawing.Point(596, 310);
+            this.btnClearPBox3.Location = new System.Drawing.Point(599, 309);
             this.btnClearPBox3.Name = "btnClearPBox3";
             this.btnClearPBox3.Size = new System.Drawing.Size(116, 23);
             this.btnClearPBox3.TabIndex = 18;
@@ -179,7 +180,7 @@
             // lblTest1
             // 
             this.lblTest1.AutoSize = true;
-            this.lblTest1.Location = new System.Drawing.Point(399, 282);
+            this.lblTest1.Location = new System.Drawing.Point(397, 282);
             this.lblTest1.Name = "lblTest1";
             this.lblTest1.Size = new System.Drawing.Size(13, 13);
             this.lblTest1.TabIndex = 21;
@@ -207,7 +208,7 @@
             // 
             // btnTest1Plus
             // 
-            this.btnTest1Plus.Location = new System.Drawing.Point(428, 277);
+            this.btnTest1Plus.Location = new System.Drawing.Point(423, 277);
             this.btnTest1Plus.Name = "btnTest1Plus";
             this.btnTest1Plus.Size = new System.Drawing.Size(33, 23);
             this.btnTest1Plus.TabIndex = 24;
@@ -227,7 +228,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(471, 282);
+            this.label4.Location = new System.Drawing.Point(470, 282);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(121, 13);
             this.label4.TabIndex = 26;
@@ -246,7 +247,7 @@
             // 
             // btnTest2Plus
             // 
-            this.btnTest2Plus.Location = new System.Drawing.Point(685, 278);
+            this.btnTest2Plus.Location = new System.Drawing.Point(688, 277);
             this.btnTest2Plus.Name = "btnTest2Plus";
             this.btnTest2Plus.Size = new System.Drawing.Size(27, 23);
             this.btnTest2Plus.TabIndex = 28;
@@ -258,7 +259,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 390);
+            this.ClientSize = new System.Drawing.Size(731, 390);
             this.Controls.Add(this.btnTest2Plus);
             this.Controls.Add(this.btnTest2Minus);
             this.Controls.Add(this.label4);

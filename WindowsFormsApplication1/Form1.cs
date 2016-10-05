@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
         private void btnStart_Click_1(object sender, EventArgs e)
         {
             this.Width = 740;
-            this.Height = 438;
+            this.Height = 390;
             
 
             pictureBox1.BackColor = Color.White;
@@ -399,7 +399,7 @@ namespace WindowsFormsApplication1
         {
             int serviceNum = 0;
             serviceNum = Convert.ToInt32(lblTest1.Text);
-            if (serviceNum <= 1)
+            if (serviceNum <= 2)
             { return; }
             else
             {
@@ -412,7 +412,7 @@ namespace WindowsFormsApplication1
         {
             int serviceNum = 0;
             serviceNum = Convert.ToInt32(lblTest2.Text);
-            if (serviceNum <= 1)
+            if (serviceNum <= 2)
             { return; }
             else
             {

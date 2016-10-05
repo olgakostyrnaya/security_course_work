@@ -57,15 +57,12 @@ namespace WindowsFormsApplication1
             {              
                 propLen = propLen + 1;
                 keyArray.SetValue(newNode, propLen);
-               // keyAsText = keyAsText + newNode.propId;
                 firstNode = newNode;
                 exitSignal = false;
-         //       return;
-                // currentNode = newNode;
             }
             else
              {
-                if ((checkNodeInStore(newNode) == false)) //|| (firstOrNot(newNode)==true))
+                if ((checkNodeInStore(newNode) == false)) 
                 {
                     propLen = propLen + 1;
                     keyArray.SetValue(newNode, propLen);

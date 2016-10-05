@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         {
             pictureBox1.Enabled = false;
             btnOK.Visible = false;
-            btnCancel.Visible = false;
+            btnClear.Visible = false;
 
             btnAttemptsNumber.Visible = false;
             btnTestLength.Visible = false;
@@ -56,7 +56,7 @@ namespace WindowsFormsApplication1
         private void button1_Click(object sender, EventArgs e)
         {
             MyBox.propState = "neutral";
-
+            MyBox.propStore.saveToFile();
         }
 
         
@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
             btnTestLength.Visible = true;
             pictureBox1.Enabled = true;
             btnOK.Visible = true;
-            btnCancel.Visible = true;
+            btnClear.Visible = true;
             btnGeneralKey.Visible = true;
             btnClearPBox3.Visible = true;
 
@@ -235,10 +235,7 @@ namespace WindowsFormsApplication1
                 case "test2":
                 int numCheck; // 6 10 14 18
                     numCheck = (Convert.ToInt32(lblTest2.Text))*2;
-                    //     while (MyBox.myChecker < 18)
-                    //   {
-                    //if (MyBox.myChecker < 18)
-                   // {
+                  
                         if ((MyBox.myChecker == numCheck+1) || (MyBox.myChecker > numCheck))
                         {
                             MessageBox.Show("Test done!", "Length Key Test");
@@ -276,7 +273,12 @@ namespace WindowsFormsApplication1
 
                             {
                                 MyBox.propTest2.writeOwnerTime(timerToTest);
-                                if (MyBox.myChecker == (numCheck / 2)) { MessageBox.Show("Start hacker attempts", "Length Key Test"); }
+                                if (MyBox.myChecker == (numCheck / 2))
+                            {
+                                
+                                MessageBox.Show("Start hacker attempts", "Length Key Test"); 
+                                
+                            }
 
                         }
                             else
@@ -437,5 +439,7 @@ namespace WindowsFormsApplication1
             serviceNum = serviceNum + 1;
             lblTest2.Text = serviceNum.ToString();
         }
+
+     
     }
 }

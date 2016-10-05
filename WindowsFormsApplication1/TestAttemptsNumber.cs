@@ -70,7 +70,7 @@ namespace WindowsFormsApplication1
             
         }
 
-        protected override void paintAxis()//(string nameAxisX, string nameAxisY)
+        protected override void paintAxis()
         {
             Color myColor;
             Color black = Color.FromArgb(50, 0, 0);

@@ -12,7 +12,6 @@ namespace WindowsFormsApplication1
 
         private float averageOwner = 0;
         private float averageHacker = 0;
-      //  private float[] difArray;
         private int lenDifArray =0;
         private float[] columnOwnerArray;
         private float[] columnHackerArray;
@@ -25,7 +24,6 @@ namespace WindowsFormsApplication1
             this.myStatGraph = Gr;
             this.currentHackerTryNumber = 0;
             this.currentOwnerTryNumber = 0;
-            //difArray = new float[100];
             this.columnOwnerArray = new float[100];
             this.columnHackerArray = new float[100];
             this.lenDifArray = 0;
@@ -64,7 +62,6 @@ namespace WindowsFormsApplication1
             }
             averageOwner = sumOwner / (this.currentOwnerTryNumber);
             averageHacker = sumHacker / (this.currentHackerTryNumber);
-            //difArray[lenDifArray] = (averageOwner) - (averageHacker);
             sumsum = " ";
             sumsum1 = " ";
             for (int i = 0; i < this.currentOwnerTryNumber; i++)
@@ -79,7 +76,6 @@ namespace WindowsFormsApplication1
             }
             columnOwnerArray[lenDifArray] = averageOwner;
             columnHackerArray[lenDifArray] = averageHacker;
-            //lenDifArray = lenDifArray + 1;
             lenDifArray = lenDifArray + 1;
 
         }
@@ -102,20 +98,15 @@ namespace WindowsFormsApplication1
             myStatGraph.Clear(Color.White);
             paintAxis();
 
-            //Pen myPen3 = new Pen(Color.Green);
-            //Pen myPen4 = new Pen(Color.Red);
             Brush myBrush3 = new SolidBrush(Color.Green);
             Brush myBrush4 = new SolidBrush(Color.Red);
             int width = 20;
             xForRect = 10;
             int margin = 20;
-            //myStatGraph.Clear(Color.White);
+            
             for (int i = 0; i < lenDifArray; i++)
             {
 
-                 // myStatGraph.DrawRectangle(myPen3, (xForRect), -((columnOwnerArray[i])/50), (width / 2), ((columnOwnerArray[i])/50));
-                 // myStatGraph.DrawRectangle(myPen4, (xForRect+(width/2)), -((columnHackerArray[i])/50), (width / 2), ((columnHackerArray[i])/50));
-                // here we are
                 myStatGraph.FillRectangle(myBrush3, (xForRect), -((columnOwnerArray[i]) / 50), (width / 2), ((columnOwnerArray[i]) / 50));
                 myStatGraph.FillRectangle(myBrush4, (xForRect + (width / 2)), -((columnHackerArray[i]) / 50), (width / 2), ((columnHackerArray[i]) / 50));
 
@@ -151,7 +142,7 @@ namespace WindowsFormsApplication1
             myStatGraph.DrawString("hacker", font, brushText, 175, -225);
 
         }
-        protected override void paintAxis()//(string nameAxisX, string nameAxisY)
+        protected override void paintAxis()
         {
             Color myColor;
             Color black = Color.FromArgb(50, 0, 0);

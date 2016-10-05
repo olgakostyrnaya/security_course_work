@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         public int wrongTry;
         public int currentHackerTryNumber = 0;
         public int currentOwnerTryNumber = 0;
-        protected abstract void paintAxis();//(string nameAxisX, string nameAxisY);
+        protected abstract void paintAxis();
         protected abstract void paintLegend();
        
         public void anotherHackerTry(int timeTry)

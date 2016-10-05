@@ -43,12 +43,7 @@ namespace WindowsFormsApplication1
 
         }
 
-        //private StatsGraphics myStGraph;
-        //public StatsGraphics propStatGraph
-        //{
-        //    get { return myStGraph; }
-        //}
-
+       
         private KeyStore myStore;
         public KeyStore propStore
         {
@@ -75,19 +70,7 @@ namespace WindowsFormsApplication1
                 arrayOfNode[i].PaintMyself(myGraph);
             }
         }
-        // с этого места
-       // public bool checkNodeInStore(Node nodeToFind)
-        //{
-          //  bool answer;
-            // answer = false;
-            //string helper = nodeToFind.propId.ToString();
-            //if (propStore.propKeyText.Contains(nodeToFind.propId.ToString()))
-              //  { answer = true; }
-            //else answer = false;
-            //return answer;        
-        //}
-       
-        // до этого места 
+    
 
         public MainBox (Graphics pBox1, Graphics pBox2, Graphics pBox3)
             {

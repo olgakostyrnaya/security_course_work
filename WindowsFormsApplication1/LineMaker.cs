@@ -32,8 +32,7 @@ namespace WindowsFormsApplication1
 
                 j1 = Convert.ToInt32(KeyStoreList.Substring(i,1));
                 j2 = Convert.ToInt32(KeyStoreList.Substring(i + 1,1));
-                DrawLine(ArrOfNode[j1], ArrOfNode[j2]);
-               //ТУТ ПИСАТЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                DrawLine(ArrOfNode[j1], ArrOfNode[j2]);               
             }
         }
         public void paintToCurrent(float x11, float y11, float x22, float y22)
